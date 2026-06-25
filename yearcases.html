@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casebook Pakistan | Cases by Year</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="foryou.css">
+    <style>
+        .back-bar {
+            background: white;
+            padding: 14px 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .back-bar a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .back-bar a:hover { color: #0f172a; }
+
+        .year-hero {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        .year-hero .year-label {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .year-hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .count-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #991b1b;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 14px;
+            border-radius: 999px;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .filter-btn {
+            background: white;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+        .no-results {
+            color: #94a3b8;
+            text-align: center;
+            padding: 3rem;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">CASEBOOK PAKISTAN</div>
+    <input type="text" id="search-input" placeholder="Search in this year...">
+</header>
+
+<div class="back-bar">
+    <a href="index.html">← Back to Timeline</a>
+</div>
+
+<div class="year-hero">
+    <div class="year-label">CASE ARCHIVE</div>
+    <h1 id="year-heading">—</h1>
+    <div class="count-badge" id="count-badge">0 CASES</div>
+</div>
+
+<div class="section">
+    <div class="filter-bar" id="filter-bar"></div>
+    <div class="cases-grid" id="year-cases-grid"></div>
+</div>
+
+<script src="cases.js"></script>
+<script>
+(function() {
+    var params    = new URLSearchParams(window.location.search);
+    var year      = params.get('year');
+
+    if (!year) {
+        document.getElementById('year-heading').textContent = 'No Year Selected';
+        return;
+    }
+
+    var yearCases = cases.filter(function(c) { return String(c.year) === year; });
+
+    document.title = 'Casebook Pakistan | ' + year;
+    document.getElementById('year-heading').textContent = year;
+    document.getElementById('count-badge').textContent  = yearCases.length + ' CASES';
+
+    // Unique categories
+    var cats = ['ALL'];
+    yearCases.forEach(function(c) {
+        if (c.category && cats.indexOf(c.category) === -1) cats.push(c.category);
+    });
+
+    var filterBar = document.getElementById('filter-bar');
+    cats.forEach(function(cat, i) {
+        var btn = document.createElement('button');
+        btn.className = 'filter-btn' + (i === 0 ? ' active' : '');
+        btn.textContent = cat;
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            renderCards(cat === 'ALL' ? yearCases : yearCases.filter(function(c) { return c.category === cat; }));
+        });
+        filterBar.appendChild(btn);
+    });
+
+    document.getElementById('search-input').addEventListener('input', function() {
+        var q = this.value.toLowerCase().trim();
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        filterBar.querySelector('.filter-btn').classList.add('active');
+        renderCards(!q ? yearCases : yearCases.filter(function(c) {
+            return c.name.toLowerCase().includes(q) ||
+                   c.category.toLowerCase().includes(q) ||
+                   (c.location && c.location.toLowerCase().includes(q));
+        }));
+    });
+
+    function makeCard(c) {
+        return '<div class="case-card" onclick="window.location.href=\'case.html?id=' + c.id + '\'">' +
+            '<div class="card-photo">' +
+                '<img src="' + c.image + '" alt="' + c.name + '" onerror="this.parentElement.style.background=\'#e2e8f0\'">' +
+            '</div>' +
+            '<div class="card-info">' +
+                '<div class="card-case-num">CASE #' + String(c.id).padStart(3, '0') + '</div>' +
+                '<div class="card-name">' + c.name + '</div>' +
+                '<div class="card-charge">' + c.category + '</div>' +
+                '<div class="card-location">📍 ' + c.location + '</div>' +
+                '<span class="card-status status-open">' + c.status + '</span>' +
+            '</div>' +
+        '</div>';
+    }
+
+    function renderCards(list) {
+        var grid = document.getElementById('year-cases-grid');
+        grid.innerHTML = list.length
+            ? list.map(makeCard).join('')
+            : '<div class="no-results">NO CASES MATCH YOUR FILTER.</div>';
+    }
+
+    renderCards(yearCases);
+})();
+</script>
+
+</body>
+</html>
