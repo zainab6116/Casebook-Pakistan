@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casebook Pakistan</title>
+    <title> Casebook Pakistan</title>
+    <link rel="icon" type="image/png" href="Images/logoCreator_imagetologo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,15 +13,68 @@
 <body>
 
 <header>
-    <div class="logo">CASEBOOK PAKISTAN</div>
+    <div class="logo">
+        <img src="Images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan Logo">
+        CASEBOOK PAKISTAN
+    </div>
+    
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 14px;">← Home</a>
+        
+        <!-- THEME TOGGLE BUTTON -->
+        <div class="theme-toggle-wrapper">
+            <button id="themeToggle">🌙</button>
+        </div>
+    </div>
 </header>
 
 <div class="container" id="case-container">
-    <!-- app.js yahan sara data inject karega -->
-    <div style="padding:4rem;text-align:center;color:#64748b">Loading...</div>
+    <div style="padding:4rem;text-align:center;color:var(--text-muted)">Loading case...</div>
 </div>
 
-<!-- Order zaroori hai: pehle data, phir logic -->
+<!-- ============================================================
+     THEME TOGGLE JAVASCRIPT
+     ============================================================ -->
+<script>
+  (function () {
+
+    const toggleBtn = document.getElementById("themeToggle");
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "🌙";
+
+    } else {
+
+        toggleBtn.textContent = "☀️";
+
+    }
+
+    toggleBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            toggleBtn.textContent = "🌙";
+            localStorage.setItem("theme", "dark");
+
+        } else {
+
+            toggleBtn.textContent = "☀️";
+            localStorage.setItem("theme", "light");
+
+        }
+
+    });
+
+})();
+    
+</script>
+
 <script src="cases.js"></script>
 <script src="app.js"></script>
 

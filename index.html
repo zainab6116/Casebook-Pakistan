@@ -1,206 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/png" href="images/logoCreator_imagetologo.jpg">
-    <title>Casebook Pakistan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="foryou.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-            border-radius: 12px;
-        }
-    </style>
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casebook Pakistan</title>
 
+<link rel="icon" type="image/png" href="Images/logoCreator_imagetologo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="foryou.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+</head>
+
+<body>
 <header>
 
-    <div class="logo">
+<div class="logo" onclick="window.location.href='index.html'">
 
-        <img src="images/logo.png" alt="Casebook Pakistan Logo">
+<img src="Images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan Logo">
 
-        <span>CASEBOOK PAKISTAN</span>
+<div class="logo-text">
+<span>CASEBOOK</span>
+<small>Pakistan</small>
+</div>
 
-    </div>
+</div>
 
-    <input type="text" id="search-input" placeholder="Search cases...">
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="report.html">Report Case</a>
+
+</nav>
+
+<div class="right-side">
+
+<input
+type="text"
+id="search-input"
+placeholder="Search cases...">
+
+<button id="themeToggle">🌙</button>
+
+</div>
 
 </header>
+
 <div class="ticker-bar">
-    <div class="ticker-label">LIVE NEWS</div>
-    <div class="ticker-track">
-        <div class="ticker-inner" id="ticker-inner">Loading latest news...</div>
-    </div>
+
+<div class="ticker-label">
+LIVE NEWS
+</div>
+
+<div class="ticker-track">
+
+<div class="ticker-inner" id="ticker-inner">
+Loading latest news...
+</div>
+
+</div>
+
 </div>
 
 <div class="hero">
-    <p class="hero-subtitle">INVESTIGATION ARCHIVE</p>
-    <h1 class="hero-title">Documenting Cases Across Pakistan</h1>
-    <div class="stats-row">
-        <div class="stat-box">
-            <div class="stat-num" id="total-cases">0</div>
-            <div class="stat-label">TOTAL CASES</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num" id="total-years">0</div>
-            <div class="stat-label">YEARS</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num" id="total-cities">0</div>
-            <div class="stat-label">CITIES</div>
-        </div>
-    </div>
+
+<p class="hero-subtitle">
+    THE STORIES THEY LEFT BEHIND
+</p>
+
+<h1 class="hero-title">
+    They spoke out.
+    <br>
+    <span>Then came the silence.</span>
+</h1>
+
+<p class="hero-tagline">
+    An archive of people who spoke the truth—and were silenced.
+</p>
+
+<div class="hero-divider"></div>
+
+<div class="stats-row">
+
+<div class="stat-box">
+
+<div class="stat-num" id="total-cases">0</div>
+
+<div class="stat-label">
+CASE FILES
+</div>
+
+</div>
+
+<div class="stat-box">
+
+<div class="stat-num" id="total-years">0</div>
+
+<div class="stat-label">
+YEARS
+</div>
+
+</div>
+
+<div class="stat-box">
+
+<div class="stat-num" id="total-cities">0</div>
+
+<div class="stat-label">
+LOCATIONS
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="section">
-    <p class="section-label">SELECT A YEAR TO VIEW CASES</p>
-    <div class="timeline">
-        <div class="timeline-line"></div>
-        <div id="timeline-dots"></div>
-    </div>
+
+<p class="section-label">
+SELECT A YEAR
+</p>
+
+<div class="timeline">
+
+<div class="timeline-line"></div>
+
+<div id="timeline-dots"></div>
+
+</div>
+
 </div>
 
 <div class="section">
-    <p class="section-label" id="cases-label">SELECT A YEAR ABOVE</p>
-    <div class="cases-grid" id="cases-grid"></div>
+
+<p class="section-label" id="cases-label">
+SELECT A YEAR ABOVE
+</p>
+
+<div class="cases-grid" id="cases-grid">
+
 </div>
 
-<!-- MAP -->
-<div class="section">
-    <p class="section-label">LIVE CASE MAP — CLICK A PIN TO VIEW CASE</p>
-    <div id="map"></div>
 </div>
+
+<div class="section">
+
+<p class="section-label">
+LIVE CASE MAP — CLICK A PIN TO VIEW CASE
+</p>
+
+<div id="map"></div>
+
+</div>
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-brand">
+
+<img src="Images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan">
+
+<h2>CASEBOOK PAKISTAN</h2>
+
+</div>
+
+<p class="footer-description">
+
+Casebook Pakistan is an independent archive documenting people who spoke the truth, questioned power, or disappeared under unresolved and controversial circumstances.
+
+</p>
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="report.html">Report a Case</a>
+
+</div>
+
+<div class="footer-note">
+
+Information is compiled from publicly available news reports and trusted sources. This website is intended for educational and documentary purposes.
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 Casebook Pakistan • Built by Zainab Imtiaz
+
+</div>
+
+</div>
+
+</footer>
 <script src="config.js"></script>
 <script src="cases.js"></script>
-<script>
 
-function groupByYear() {
+<script>
+    function groupByYear() {
+
     var grouped = {};
-    cases.forEach(function(c) {
-        if (!grouped[c.year]) grouped[c.year] = [];
+
+    cases.forEach(function (c) {
+
+        if (!grouped[c.year]) {
+
+            grouped[c.year] = [];
+
+        }
+
         grouped[c.year].push(c);
+
     });
+
     return grouped;
+
 }
 
 function loadStats() {
+
     var grouped = groupByYear();
+
     var cities = [];
-    cases.forEach(function(c) {
-        if (c.location && cities.indexOf(c.location) === -1) cities.push(c.location);
+
+    cases.forEach(function (c) {
+
+        if (c.location && cities.indexOf(c.location) === -1) {
+
+            cities.push(c.location);
+
+        }
+
     });
-    document.getElementById('total-cases').textContent  = cases.length;
-    document.getElementById('total-years').textContent  = Object.keys(grouped).length;
-    document.getElementById('total-cities').textContent = cities.length;
+
+    document.getElementById("total-cases").textContent = cases.length;
+
+    document.getElementById("total-years").textContent = Object.keys(grouped).length;
+
+    document.getElementById("total-cities").textContent = cities.length;
+
 }
 
 function buildTimeline() {
+
     var grouped = groupByYear();
-    var years   = Object.keys(grouped).sort();
-    var box     = document.getElementById('timeline-dots');
-    var html    = '';
 
-    years.forEach(function(y, i) {
-        html += '<div class="year-dot' + (i === 0 ? ' active' : '') + '" data-year="' + y + '">';
-        html += '<div class="dot"></div>';
-        html += '<div class="year-num">' + y + '</div>';
-        html += '<div class="year-count">' + grouped[y].length + ' cases</div>';
-        html += '</div>';
-    });
+    var years = Object.keys(grouped).sort();
 
-    box.innerHTML = html;
+    var container = document.getElementById("timeline-dots");
 
-    box.querySelectorAll('.year-dot').forEach(function(dot) {
-        dot.addEventListener('click', function() {
-            showCases(this.dataset.year, this);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    years.forEach(function (year, index) {
+
+        var dot = document.createElement("div");
+
+        dot.className = "year-dot" + (index === 0 ? " active" : "");
+
+        dot.dataset.year = year;
+
+        dot.innerHTML =
+            '<div class="dot"></div>' +
+            '<div class="year-num">' + year + '</div>' +
+            '<div class="year-count">' + grouped[year].length + ' CASES</div>';
+
+        dot.addEventListener("click", function () {
+
+            showCases(year, dot);
+
         });
+
+        container.appendChild(dot);
+
     });
 
-    if (years.length) showCases(years[0], box.querySelector('.year-dot'));
+    if (years.length > 0) {
+
+        showCases(years[0], container.querySelector(".year-dot"));
+
+    }
+
 }
 
 function makeCard(c) {
-    return '<div class="case-card" onclick="window.location.href=\'case.html?id=' + c.id + '\'">' +
-        '<div class="card-photo">' +
-            '<img src="' + c.image + '" alt="' + c.name + '" onerror="this.parentElement.style.background=\'#e2e8f0\'">' +
-        '</div>' +
-        '<div class="card-info">' +
-            '<div class="card-case-num">CASE #' + String(c.id).padStart(3, '0') + '</div>' +
-            '<div class="card-name">' + c.name + '</div>' +
-            '<div class="card-charge">' + c.category + '</div>' +
-            '<div class="card-location">📍 ' + c.location + '</div>' +
-            '<span class="card-status status-open">' + c.status + '</span>' +
-        '</div>' +
-    '</div>';
+
+    return `
+
+    <div class="case-card" onclick="window.location.href='case.html?id=${c.id}'">
+
+        <div class="card-photo">
+
+            <img src="${c.image}" alt="${c.name}" onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="card-info">
+
+            <div class="card-case-num">
+
+                CASE #${String(c.id).padStart(3,"0")}
+
+            </div>
+
+            <div class="card-name">
+
+                ${c.name}
+
+            </div>
+
+            <div class="card-charge">
+
+                ${c.category}
+
+            </div>
+
+            <div class="card-location">
+
+                📍 ${c.location}
+
+            </div>
+
+            <span class="card-status status-open">
+
+                ${c.status}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    `;
+
 }
 
-function showCases(year, dot) {
-    document.querySelectorAll('.year-dot').forEach(function(d) { d.classList.remove('active'); });
-    if (dot) dot.classList.add('active');
+function showCases(year, activeDot) {
+
+    document.querySelectorAll(".year-dot").forEach(function (dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+    if (activeDot) {
+
+        activeDot.classList.add("active");
+
+    }
 
     var grouped = groupByYear();
-    var list    = grouped[year] || [];
-    var label   = document.getElementById('cases-label');
-    var grid    = document.getElementById('cases-grid');
 
-    if (label) label.textContent = year + ' — ' + list.length + ' CASES';
-    if (grid)  grid.innerHTML = list.length ? list.map(makeCard).join('') : '<p style="color:#94a3b8;padding:2rem">No cases for this year.</p>';
+    var list = grouped[year] || [];
+
+    document.getElementById("cases-label").textContent =
+        year + " — " + list.length + " CASES";
+
+    document.getElementById("cases-grid").innerHTML =
+        list.map(makeCard).join("");
+
 }
-
 function initSearch() {
-    var input = document.getElementById('search-input');
+
+    var input = document.getElementById("search-input");
+
     if (!input) return;
-    input.addEventListener('input', function() {
-        var q = this.value.toLowerCase().trim();
-        if (!q) {
-            var firstYear = Object.keys(groupByYear()).sort()[0];
-            showCases(firstYear, document.querySelector('.year-dot'));
+
+    input.addEventListener("input", function () {
+
+        var q = this.value.trim().toLowerCase();
+
+        if (q === "") {
+
+            var firstDot = document.querySelector(".year-dot");
+
+            if (firstDot) {
+
+                showCases(firstDot.dataset.year, firstDot);
+
+            }
+
             return;
+
         }
-        document.querySelectorAll('.year-dot').forEach(function(d) { d.classList.remove('active'); });
-        var results = cases.filter(function(c) {
-            return c.name.toLowerCase().includes(q) ||
-                   c.category.toLowerCase().includes(q) ||
-                   (c.location && c.location.toLowerCase().includes(q)) ||
-                   String(c.year).includes(q);
+
+        document.querySelectorAll(".year-dot").forEach(function (dot) {
+
+            dot.classList.remove("active");
+
         });
-        var label = document.getElementById('cases-label');
-        var grid  = document.getElementById('cases-grid');
-        if (label) label.textContent = results.length + ' RESULTS FOR "' + q.toUpperCase() + '"';
-        if (grid)  grid.innerHTML = results.length ? results.map(makeCard).join('') : '<p style="color:#94a3b8;padding:2rem">No cases found.</p>';
+
+        var results = cases.filter(function (c) {
+
+            return (
+
+                c.name.toLowerCase().includes(q) ||
+
+                c.category.toLowerCase().includes(q) ||
+
+                c.location.toLowerCase().includes(q) ||
+
+                c.year.toString().includes(q) ||
+
+                c.status.toLowerCase().includes(q)
+
+            );
+
+        });
+
+        document.getElementById("cases-label").textContent =
+            results.length + " RESULT" + (results.length !== 1 ? "S" : "") + " FOUND";
+
+        if (results.length) {
+
+            document.getElementById("cases-grid").innerHTML =
+                results.map(makeCard).join("");
+
+        } else {
+
+            document.getElementById("cases-grid").innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted);">
+                    <h2>No cases found</h2>
+                    <p>Try another keyword.</p>
+                </div>
+            `;
+
+        }
+
+        setTimeout(function () {
+
+            document.getElementById("cases-label").scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        },50);
+
     });
+
 }
 
 function loadNews() {
+
     var news = [
-        'BREAKING: Major fraud case hearing scheduled next week',
-        'UPDATE: FIA arrests key suspect in corruption probe',
-        'NEW: Cybercrime case officially opened in Islamabad',
-        'VERDICT: Embezzlement case — prosecution wins',
-        'ALERT: Witnesses come forward in missing persons case'
+
+        "BREAKING: Major fraud case hearing scheduled next week",
+
+        "UPDATE: FIA arrests key suspect in corruption probe",
+
+        "NEW: Cybercrime case officially opened in Islamabad",
+
+        "VERDICT: Embezzlement case — prosecution wins",
+
+        "ALERT: Witnesses come forward in missing persons case"
+
     ];
-    var ticker = document.getElementById('ticker-inner');
-    if (ticker) ticker.textContent = news.join('   •   ');
+
+    document.getElementById("ticker-inner").textContent =
+        news.join("   •   ");
+
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+(function () {
+
+    const toggleBtn = document.getElementById("themeToggle");
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        toggleBtn.textContent = "🌙";
+
+    } else {
+
+        toggleBtn.textContent = "☀️";
+
+    }
+
+    toggleBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            toggleBtn.textContent = "🌙";
+
+            localStorage.setItem("theme","dark");
+
+        } else {
+
+            toggleBtn.textContent = "☀️";
+
+            localStorage.setItem("theme","light");
+
+        }
+
+    });
+
+})();
+window.addEventListener("DOMContentLoaded", function () {
+
     loadStats();
+
     buildTimeline();
+
     loadNews();
+
     initSearch();
+
 });
+
 </script>
-<!-- JS FILES — order important hai -->
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <script src="map.js"></script>
+
 <script src="app.js"></script>
 
 </body>

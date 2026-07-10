@@ -1,11 +1,4 @@
-// =============================================
-// TIMELINE.JS
-// Sab kuch cases array se aata hai (cases.js)
-// data.js ki bilkul zaroorat nahi
-// =============================================
 
-
-// Cases ko year ke hisab se group karo
 function groupByYear() {
     var grouped = {};
     cases.forEach(function(c) {
