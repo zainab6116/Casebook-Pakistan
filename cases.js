@@ -774,59 +774,463 @@ link:"https://www.dawn.com/news/1559750"
 },
 
 {
-    id: 6,
-    name: "Matiullah Jan",
-    status: "CASE UNRESOLVED",
-    image: "images/image6.jpg",
+id:45,
+name:"Matiullah Jan",
+status:"CASE UNRESOLVED",
+image:"images/matiullah-jan.jpg",
+category:"Investigative Journalist",
+location:"Islamabad, Pakistan",
+year:"2020",
 
-    category: "Journalist",
-    location: "Islamabad",
-    year: "2020",
+quote:{
+text:"He was taken in broad daylight. The questions he asked remained.",
+author:"Casebook Pakistan"
+},
 
-    overview:
-    "Journalist Matiullah Jan was abducted in broad daylight in July 2020 and later released.",
+overview:"Matiullah Jan is a Pakistani investigative journalist known for reporting on politics, the judiciary, governance and civil-military relations. On 21 July 2020, unidentified armed men abducted him in broad daylight outside a school in Islamabad. CCTV footage of the incident circulated widely, prompting national and international concern. He was released roughly twelve hours later, but the identity of those responsible has never been officially established.",
 
-    finding:
-    "Video footage of the incident spread widely and sparked public concern.",
+timelineTitle:"A Daylight Abduction",
 
-    official:
-    "Investigations were launched but many questions remained unanswered.",
+timeline:[
 
-    attention:
-    "The incident became one of the most discussed press-freedom cases of the year.",
-
-    reaction:
-    "Rights groups called for a transparent investigation.",
-
-    sources: []
+{
+date:"Before 2020",
+title:"Independent Journalism",
+description:"Became widely known for reporting on politics, constitutional affairs and judicial independence."
 },
 
 {
-    id: 7,
-    name: "Idris Khattak",
-    status: "CASE UNRESOLVED",
-    image: "images/image7.jpg",
+date:"21 Jul 2020",
+title:"Abducted",
+description:"Unidentified armed men intercepted his vehicle outside a school in Islamabad and forced him into another vehicle. CCTV footage of the incident spread rapidly. "
+},
 
-    category: "Human Rights Researcher",
-    location: "Pakistan",
-    year: "2020",
+{
+date:"21 Jul 2020",
+title:"Released",
+description:"Approximately twelve hours later, Matiullah Jan was released on the outskirts of Islamabad and returned home safely."
+},
 
-    overview:
-    "The disappearance of human-rights researcher Idris Khattak remained a major issue throughout 2020.",
+{
+date:"July 2020",
+title:"International Condemnation",
+description:"Press freedom organizations demanded a transparent investigation and accountability for those responsible. "
+},
 
-    finding:
-    "Authorities later confirmed that he was in custody, drawing greater attention to the case.",
+{
+date:"Ongoing",
+title:"Justice Awaited",
+description:"No one has been publicly identified or convicted in connection with the abduction. "
+}
 
-    official:
-    "Questions were raised regarding transparency and legal procedures.",
+],
 
-    attention:
-    "The case received national and international coverage.",
+knownFor:[
 
-    reaction:
-    "Human-rights organizations repeatedly demanded accountability.",
+"Investigative journalism",
 
-    sources: []
+"Political reporting",
+
+"Judicial affairs",
+
+"Freedom of expression",
+
+"Public accountability"
+
+],
+
+finding:"The abduction of Matiullah Jan became one of Pakistan's most prominent press freedom cases. Although he was safely released the same day, the perpetrators have not been publicly identified and the case remains unresolved. ",
+
+official:"Authorities opened an investigation after the abduction. A Joint Investigation Team later informed the Supreme Court that available evidence had not identified the abductors. ",
+
+attention:"The case received widespread national and international attention because CCTV footage captured the daylight abduction of a prominent journalist. It became a major press freedom story in Pakistan. ",
+
+reaction:"The Committee to Protect Journalists (CPJ), journalists' unions and human rights organizations called for an independent investigation and accountability. ",
+
+whyItMatters:"The incident highlighted the dangers faced by journalists reporting on politically sensitive issues and reinforced concerns about press freedom and accountability.",
+
+legacy:"Matiullah Jan's abduction remains one of the defining press freedom incidents in Pakistan, frequently cited in discussions about journalist safety and impunity.",
+
+rememberedFor:[
+
+"Independent journalism",
+
+"Daylight abduction",
+
+"Political reporting",
+
+"Press freedom"
+
+],
+
+whatTheyStoodFor:[
+
+"Truth",
+
+"Freedom of Expression",
+
+"Independent Journalism",
+
+"Rule of Law",
+
+"Public Accountability"
+
+],
+investigation:[
+
+{
+title:"What He Investigated",
+description:"Matiullah Jan reported on politics, constitutional affairs, judicial independence, civil-military relations and governance. His journalism often focused on issues of public accountability and the rule of law."
+},
+
+{
+title:"Official Investigation",
+description:"Following his abduction on 21 July 2020, Islamabad Police opened an investigation and a Joint Investigation Team (JIT) was formed. The JIT later informed the Supreme Court that despite examining CCTV footage and other evidence, those responsible could not be identified. No one has been publicly charged or convicted."
+},
+
+{
+title:"Press Freedom Response",
+description:"The Committee to Protect Journalists (CPJ), Reporters Without Borders (RSF), Amnesty International, the International Federation of Journalists (IFJ), the Pakistan Press Foundation (PPF) and journalist unions condemned the abduction, calling for an independent investigation, accountability and stronger protections for journalists."
+},
+
+{
+title:"Explore His Reporting",
+description:"Browse Matiullah Jan's interviews, investigations and public affairs reporting.",
+link:"https://www.youtube.com/results?search_query=Matiullah+Jan"
+}
+
+],
+
+questions:[
+
+"Who abducted Matiullah Jan in broad daylight?",
+
+"Why has no one been held accountable despite CCTV evidence?",
+
+"What protections should exist for journalists covering powerful institutions?",
+
+"How does impunity in attacks on journalists affect press freedom?"
+
+],
+
+caseStatus:{
+
+victim:"Matiullah Jan",
+
+date:"21 July 2020",
+
+location:"Islamabad, Pakistan",
+
+status:"UNRESOLVED",
+
+updated:"July 2026"
+
+},
+
+caseProgress:{
+
+abducted:"21 July 2020",
+
+released:"21 July 2020",
+
+jitInvestigation:"Completed",
+
+suspectsIdentified:"No",
+
+justiceDelivered:"Pending"
+
+},
+
+tags:[
+
+"Journalist",
+
+"Investigative Journalism",
+
+"Press Freedom",
+
+"Abduction",
+
+"Islamabad",
+
+"Judiciary",
+
+"Freedom of Expression",
+
+"2020"
+
+],
+
+riskLevel:"Critical",
+
+caseType:"Abduction / Press Freedom",
+
+related:[
+19,
+20,
+21,
+22
+],
+
+casebookNote:"Matiullah Jan's abduction became one of Pakistan's most significant press freedom cases. Although he was released within hours, the identity of those responsible remains unknown. The case continues to symbolize the dangers faced by journalists investigating politically sensitive issues and the broader challenge of accountability for attacks on the press.",
+
+sources:[
+
+{
+name:"Committee to Protect Journalists",
+link:"https://cpj.org/2020/07/journalist-matiullah-jan-abducted-in-pakistan-1-day-before-supreme-court-hearing/"
+},
+
+{
+name:"Dawn",
+link:"https://www.dawn.com/news/1587247"
+},
+
+{
+name:"Reporters Without Borders",
+link:"https://rsf.org/"
+},
+
+{
+name:"Pakistan Press Foundation",
+link:"https://pakistanpressfoundation.org/"
+},
+
+{
+name:"Amnesty International",
+link:"https://www.amnesty.org/"
+}
+
+]
+
+},
+{
+id:46,
+name:"Idris Khattak",
+status:"CASE ONGOING",
+image:"images/idris-khattak.jpg",
+category:"Human Rights Defender",
+location:"Khyber Pakhtunkhwa, Pakistan",
+year:"2020",
+
+quote:{
+text:"Months after he vanished, the State acknowledged he was in its custody.",
+author:"Casebook Pakistan"
+},
+
+overview:"Idris Khattak is a Pakistani human rights researcher known for documenting alleged enforced disappearances, conflict and humanitarian issues in Khyber Pakhtunkhwa and the former Federally Administered Tribal Areas. Although he disappeared in November 2019, the case became a major national and international issue in 2020 when the Ministry of Defence confirmed that he was in military custody under the Official Secrets Act. Human rights organizations criticized the prolonged secret detention and called for due process.",
+
+timelineTitle:"From Disappearance To Official Acknowledgment",
+
+timeline:[
+
+{
+date:"13 Nov 2019",
+title:"Disappeared",
+description:"Idris Khattak went missing after unidentified men intercepted his vehicle near the Swabi Interchange in Khyber Pakhtunkhwa."
+},
+
+{
+date:"May 2020",
+title:"International Concern",
+description:"Human Rights Watch urged Pakistani authorities to seriously investigate his disappearance and disclose his whereabouts. "
+},
+
+{
+date:"16 Jun 2020",
+title:"Custody Confirmed",
+description:"The Ministry of Defence acknowledged for the first time that Idris Khattak was in military custody under the Official Secrets Act. "
+},
+
+{
+date:"29 Jun 2020",
+title:"UN Experts Respond",
+description:"United Nations human rights experts condemned his enforced disappearance and called for due process and immediate access to legal protections. "
+},
+
+{
+date:"Nov 2020",
+title:"One Year Later",
+description:"Amnesty International stated that one year after his disappearance, his family still lacked clear information about his detention and legal process. "
+}
+
+],
+
+knownFor:[
+
+"Human rights research",
+
+"Documenting enforced disappearances",
+
+"Conflict research",
+
+"Civil liberties",
+
+"Public accountability"
+
+],
+
+finding:"The case became one of Pakistan's most prominent human rights cases in 2020 after authorities confirmed that Idris Khattak had been secretly held for more than seven months. Human rights organizations argued that the prolonged incommunicado detention and military proceedings violated international human rights standards. ",
+
+official:"Authorities stated that Idris Khattak was being prosecuted under the Official Secrets Act and that legal proceedings were being conducted under Pakistani law. ",
+
+attention:"His detention attracted widespread international attention from the United Nations, Amnesty International, Human Rights Watch and other organizations because of concerns over enforced disappearance, military detention and due process. ",
+
+reaction:"Human rights organizations repeatedly called for his immediate access to legal counsel, contact with his family and a fair, transparent legal process. ",
+
+whyItMatters:"The case became a symbol of international concern over enforced disappearances, secret detention and the protection of human rights defenders in Pakistan.",
+
+legacy:"Idris Khattak's detention continues to be cited globally as one of Pakistan's most significant human rights cases involving enforced disappearance and military prosecution.",
+
+rememberedFor:[
+
+"Human rights research",
+
+"Documenting disappearances",
+
+"Rule of law",
+
+"Civil liberties"
+
+],
+
+whatTheyStoodFor:[
+
+"Human Rights",
+
+"Truth",
+
+"Justice",
+
+"Accountability",
+
+"Rule of Law"
+
+],
+investigation:[
+
+{
+title:"What He Investigated",
+description:"Idris Khattak documented alleged enforced disappearances, armed conflict, civilian protection and human rights issues in Khyber Pakhtunkhwa and the former Federally Administered Tribal Areas (FATA). His work contributed to national and international human rights reporting."
+},
+
+{
+title:"Official Investigation",
+description:"In June 2020, the Ministry of Defence informed the Peshawar High Court that Idris Khattak was being held under the Official Secrets Act. Authorities stated that his detention and prosecution were being conducted under Pakistani law through the military justice system."
+},
+
+{
+title:"Human Rights Response",
+description:"Amnesty International, Human Rights Watch (HRW), the United Nations Working Group on Enforced or Involuntary Disappearances (WGEID), Front Line Defenders, the International Commission of Jurists (ICJ) and other organizations criticized his prolonged secret detention. They called for due process, immediate access to legal counsel and family members, and greater transparency regarding his case."
+},
+
+{
+title:"Explore His Work",
+description:"Learn more about Idris Khattak's human rights research and advocacy.",
+link:"https://www.google.com/search?q=Idris+Khattak+human+rights+researcher"
+}
+
+],
+
+questions:[
+
+"Why was Idris Khattak held incommunicado for several months before his detention was officially acknowledged?",
+
+"How should allegations under the Official Secrets Act be balanced with the right to a fair trial?",
+
+"What protections are needed for researchers documenting human rights issues?",
+
+"How can enforced disappearance cases be investigated transparently and independently?"
+
+],
+
+caseStatus:{
+
+victim:"Idris Khattak",
+
+date:"16 June 2020",
+
+location:"Khyber Pakhtunkhwa, Pakistan",
+
+status:"CASE ONGOING",
+
+updated:"July 2026"
+
+},
+
+caseProgress:{
+
+disappearanceReported:"November 2019",
+
+militaryCustodyConfirmed:"16 June 2020",
+
+legalProceedings:"Ongoing",
+
+internationalAdvocacy:"Ongoing"
+
+},
+
+tags:[
+
+"Human Rights Defender",
+
+"Human Rights",
+
+"Enforced Disappearance",
+
+"Official Secrets Act",
+
+"Military Custody",
+
+"Rule of Law",
+
+"Civil Liberties",
+
+"2020"
+
+],
+
+riskLevel:"Critical",
+
+caseType:"Enforced Disappearance / Human Rights",
+
+related:[
+23,
+40,
+44
+],
+
+casebookNote:"Although Idris Khattak disappeared in 2019, this case is categorized under 2020 because that was the year authorities officially acknowledged his detention. The case became a major international human rights issue, raising concerns about enforced disappearances, military detention and due process.",
+
+sources:[
+
+{
+name:"Amnesty International",
+link:"https://www.amnesty.org/en/documents/asa33/2544/2020/en/"
+},
+
+{
+name:"Human Rights Watch",
+link:"https://www.hrw.org/news/2020/05/04/pakistan-investigate-disappearance-activist"
+},
+
+{
+name:"Front Line Defenders",
+link:"https://www.frontlinedefenders.org/en/case/idris-khattak-detained-secret-location"
+},
+
+{
+name:"Office of the United Nations High Commissioner for Human Rights",
+link:"https://www.ohchr.org/"
+},
+
+{
+name:"Dawn",
+link:"https://www.dawn.com/news/1563818"
+}
+
+]
+
 },
 {
 id:8,
@@ -843,7 +1247,7 @@ location:"Mandi Bahauddin, Punjab",
 
 year:"2020",
 
-overview:"Abid Hussain Abidi was a Pakistani crime journalist associated with the local newspaper Jurm-o-Saza. On 25 September 2020, he was shot by two motorcycle-riding gunmen while returning home with his brother in Malikwal, Punjab. According to his brother, the attackers said they were retaliating for one of Abidi's news reports before opening fire. He later died from his injuries while being transferred to hospital. :contentReference[oaicite:0]{index=0}",
+overview:"Abid Hussain Abidi was a Pakistani crime journalist associated with the local newspaper Jurm-o-Saza. On 25 September 2020, he was shot by two motorcycle-riding gunmen while returning home with his brother in Malikwal, Punjab. According to his brother, the attackers said they were retaliating for one of Abidi's news reports before opening fire. He later died from his injuries while being transferred to hospital. ",
 
 timeline:[
 
