@@ -73,18 +73,19 @@ Loading archive updates...
 <div class="hero">
 
 <p class="hero-subtitle">
-    THE STORIES THEY LEFT BEHIND
+    SPOKEN. SILENCED. STILL UNANSWERED.
 </p>
 
 <h1 class="hero-title">
-    They spoke out.
+    They told the truth.
     <br>
-    <span>Then came the silence.</span>
+    <span>Someone made them pay for it.</span>
 </h1>
 
 <p class="hero-tagline">
-    Every case here began with someone brave enough to speak.
-    This is where their story doesn't get to end in silence.
+    Every name in this archive belonged to somebody's family.
+    They spoke up — and it cost them everything.
+    Nobody responsible has answered for it yet.
 </p>
 
 <div class="hero-divider"></div>
@@ -117,6 +118,16 @@ YEARS OF SILENCE
 
 <div class="stat-label">
 CITIES ACROSS PAKISTAN
+</div>
+
+</div>
+
+<div class="stat-box stat-box-alert">
+
+<div class="stat-num" id="total-unresolved">0</div>
+
+<div class="stat-label">
+STILL UNRESOLVED
 </div>
 
 </div>
@@ -250,11 +261,21 @@ function loadStats() {
 
     });
 
+    var unresolvedPattern = /unresolved|missing|open|ongoing|disappear/i;
+
+    var unresolved = cases.filter(function (c) {
+
+        return unresolvedPattern.test(c.status || "");
+
+    });
+
     document.getElementById("total-cases").textContent = cases.length;
 
     document.getElementById("total-years").textContent = Object.keys(grouped).length;
 
     document.getElementById("total-cities").textContent = cities.length;
+
+    document.getElementById("total-unresolved").textContent = unresolved.length;
 
 }
 

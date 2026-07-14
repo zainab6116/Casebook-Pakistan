@@ -56,15 +56,18 @@ const openStatus = /unresolved|missing|open|ongoing|disappear/i.test(currentCase
 
 return `
 
-<div class="box" id="section-timeline">
+<section class="timeline-panel full-bleed reveal-target" id="section-timeline">
 
-<h2>Timeline</h2>
+<div class="panel-inner">
+
+<p class="eyebrow-mini eyebrow-mini-dark">Timeline</p>
+<h2 class="panel-heading">How this unfolded</h2>
 
 <div class="timeline-case">
 
 ${items.map((item,i)=>`
 
-<div class="timeline-item">
+<div class="timeline-item reveal-target">
 
 <div class="timeline-dot${(openStatus && i===items.length-1) ? " timeline-dot-current" : ""}"></div>
 
@@ -91,6 +94,8 @@ ${item.description}
 </div>
 
 </div>
+
+</section>
 
 `;
 
@@ -257,21 +262,17 @@ function overview(){
 
 return `
 
-<div class="box" id="section-overview">
+<section class="section-editorial reveal-target" id="section-overview">
 
-<h2>
+<p class="eyebrow-mini">Overview</p>
 
-Overview
-
-</h2>
-
-<p>
+<p class="editorial-text">
 
 ${currentCase.overview}
 
 </p>
 
-</div>
+</section>
 
 `;
 
@@ -291,7 +292,7 @@ return `
 
 <div class="content-grid highlight-grid">
 
-<div class="highlight red">
+<div class="highlight red reveal-target">
 
 <div class="highlight-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
 
@@ -305,7 +306,9 @@ ${currentCase.finding || "Information unavailable."}
 
 </div>
 
-<div class="highlight blue">
+<span class="vs-divider">VS</span>
+
+<div class="highlight blue reveal-target">
 
 <div class="highlight-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></div>
 
@@ -333,9 +336,9 @@ function contentGrid(){
 
 return `
 
-<div class="content-grid">
+<div class="editorial-grid">
 
-<div class="box">
+<div class="editorial-col reveal-target">
 
 <h2>Why This Case Matters</h2>
 
@@ -347,7 +350,7 @@ ${currentCase.attention || "Information unavailable."}
 
 </div>
 
-<div class="box">
+<div class="editorial-col reveal-target">
 
 <h2>Public Reaction</h2>
 
@@ -375,19 +378,20 @@ if(!currentCase.investigation) return "";
 
 return `
 
-<div class="box" id="section-investigation">
+<section class="section-block" id="section-investigation">
 
-<h2>
+<p class="eyebrow-mini">Investigation</p>
+<h2 class="section-heading">What was actually looked into</h2>
 
-Investigation
+<div class="exhibit-list">
 
-</h2>
+${currentCase.investigation.map((item,i)=>`
 
-<div class="investigation-list">
+<div class="exhibit-row reveal-target">
 
-${currentCase.investigation.map(item=>`
+<div class="exhibit-num">${String(i+1).padStart(2,"0")}</div>
 
-<div class="investigation-card">
+<div class="exhibit-body">
 
 <h3>
 
@@ -421,11 +425,13 @@ Open Source
 
 </div>
 
+</div>
+
 `).join("")}
 
 </div>
 
-</div>
+</section>
 
 `;
 
@@ -441,23 +447,23 @@ if(!currentCase.questions) return "";
 
 return `
 
-<div class="box" id="section-questions">
+<section class="questions-panel full-bleed reveal-target" id="section-questions">
 
-<h2>
+<div class="panel-inner">
 
-Unanswered Questions
+<p class="eyebrow-mini eyebrow-mini-dark">Unanswered Questions</p>
 
-</h2>
-
-<p class="section-lede">The record stays open until these have real answers.</p>
+<h2 class="panel-heading">The record stays open until these have real answers.</h2>
 
 <div class="question-list">
 
-${currentCase.questions.map(question=>`
+${currentCase.questions.map((question,i)=>`
 
-<div class="question-item">
+<div class="question-row reveal-target">
 
-${question}
+<span class="question-mark">Q${String(i+1).padStart(2,"0")}</span>
+
+<p>${question}</p>
 
 </div>
 
@@ -466,6 +472,8 @@ ${question}
 </div>
 
 </div>
+
+</section>
 
 `;
 
@@ -479,103 +487,39 @@ function statusSection(){
 
 if(!currentCase.caseStatus) return "";
 
-const s=currentCase.caseStatus;
+const s = currentCase.caseStatus;
+
+const rows = [
+["Victim", s.victim],
+["Date", s.date],
+["Location", s.location],
+["Status", s.status],
+["Updated", s.updated]
+];
 
 return `
 
-<div class="box" id="section-case-status">
+<section class="status-strip" id="section-case-status">
 
-<h2>
+<p class="eyebrow-mini">Current Status</p>
 
-Current Status
+<div class="status-strip-grid">
 
-</h2>
+${rows.map(([label,val])=>`
 
-<div class="status-grid">
+<div class="status-cell reveal-target">
 
-<div class="status-card">
+<span>${label}</span>
 
-<span>
-
-Victim
-
-</span>
-
-<strong>
-
-${s.victim}
-
-</strong>
+<strong>${val}</strong>
 
 </div>
 
-<div class="status-card">
-
-<span>
-
-Date
-
-</span>
-
-<strong>
-
-${s.date}
-
-</strong>
+`).join("")}
 
 </div>
 
-<div class="status-card">
-
-<span>
-
-Location
-
-</span>
-
-<strong>
-
-${s.location}
-
-</strong>
-
-</div>
-
-<div class="status-card">
-
-<span>
-
-Status
-
-</span>
-
-<strong>
-
-${s.status}
-
-</strong>
-
-</div>
-
-<div class="status-card">
-
-<span>
-
-Updated
-
-</span>
-
-<strong>
-
-${s.updated}
-
-</strong>
-
-</div>
-
-</div>
-
-</div>
+</section>
 
 `;
 
@@ -594,18 +538,18 @@ function sources(){
 if(!currentCase.sources) return "";
 
 return `
-<div class="box" id="section-sources">
-<h2>Sources</h2>
+<section class="sources-footnotes" id="section-sources">
+<p class="eyebrow-mini">Sources</p>
 
-<div class="sources-list">
-${currentCase.sources.map(src => `
-<a href="${src.link}" target="_blank" class="source-item">
-${src.name || "Unidentified Source"}
+<div class="footnote-list">
+${currentCase.sources.map((src,i) => `
+<a href="${src.link}" target="_blank" class="footnote-item">
+<span>${String(i+1).padStart(2,"0")}</span> ${src.name || "Unidentified Source"}
 </a>
 `).join("")}
 </div>
 
-</div>
+</section>
 `;
 }
 
@@ -657,13 +601,14 @@ c.year === currentCase.year
 if(related.length === 0) return "";
 
 return `
-<div class="box">
-<h2>Related Cases</h2>
+<section class="section-block">
+<p class="eyebrow-mini">Related Cases</p>
+<h2 class="section-heading">Other files that connect to this one</h2>
 
 <div class="related-grid">
 
 ${related.map(c => `
-<a class="related-card" href="case.html?id=${c.id}">
+<a class="related-card reveal-target" href="case.html?id=${c.id}">
 <img src="${c.image}" alt="${c.name}">
 <div class="related-info">
 <h3>${c.name}</h3>
@@ -673,7 +618,7 @@ ${related.map(c => `
 `).join("")}
 
 </div>
-</div>
+</section>
 `;
 }
 
@@ -683,7 +628,7 @@ ${related.map(c => `
 
 function setupScrollAnimations(){
 
-const elements = document.querySelectorAll(".box, .highlight, .fact-card, .timeline-item");
+const elements = document.querySelectorAll(".reveal-target, .fact-card");
 
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
