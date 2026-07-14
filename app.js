@@ -51,19 +51,22 @@ function createTimeline(){
 
 if(!currentCase.timeline) return "";
 
+const items = currentCase.timeline;
+const openStatus = /unresolved|missing|open|ongoing|disappear/i.test(currentCase.status || "");
+
 return `
 
-<div class="box">
+<div class="box" id="section-timeline">
 
 <h2>Timeline</h2>
 
 <div class="timeline-case">
 
-${currentCase.timeline.map(item=>`
+${items.map((item,i)=>`
 
 <div class="timeline-item">
 
-<div class="timeline-dot"></div>
+<div class="timeline-dot${(openStatus && i===items.length-1) ? " timeline-dot-current" : ""}"></div>
 
 <div class="timeline-content">
 
@@ -101,9 +104,13 @@ function quickFacts(){
 
 return `
 
+<div class="quick-facts-wrap">
+
 <div class="quick-facts">
 
 <div class="fact-card">
+
+<div class="fact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
 
 <h4>Victim</h4>
 
@@ -113,6 +120,8 @@ return `
 
 <div class="fact-card">
 
+<div class="fact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+
 <h4>Year</h4>
 
 <p>${currentCase.year}</p>
@@ -120,6 +129,8 @@ return `
 </div>
 
 <div class="fact-card">
+
+<div class="fact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.4 7-11.5A7 7 0 1 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
 
 <h4>Location</h4>
 
@@ -129,6 +140,8 @@ return `
 
 <div class="fact-card">
 
+<div class="fact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M6 7h12M4 7l3-4M20 7l-3-4M4 15l3 4M20 15l-3 4"/></svg></div>
+
 <h4>Status</h4>
 
 <p>${currentCase.status}</p>
@@ -136,6 +149,39 @@ return `
 </div>
 
 </div>
+
+</div>
+
+`;
+
+}
+
+/* ----------------------------------------------------------
+   JUMP-TO-SECTION NAV
+---------------------------------------------------------- */
+
+function caseNav(){
+
+const items = [
+
+{ id:"section-overview", label:"Overview", ok:true },
+{ id:"section-timeline", label:"Timeline", ok:!!currentCase.timeline },
+{ id:"section-investigation", label:"Investigation", ok:!!currentCase.investigation },
+{ id:"section-questions", label:"Questions", ok:!!currentCase.questions },
+{ id:"section-case-status", label:"Status", ok:!!currentCase.caseStatus },
+{ id:"section-sources", label:"Sources", ok:!!currentCase.sources }
+
+].filter(i => i.ok);
+
+if(items.length < 2) return "";
+
+return `
+
+<nav class="case-nav" aria-label="Jump to section">
+
+${items.map(i => `<a href="#${i.id}">${i.label}</a>`).join("")}
+
+</nav>
 
 `;
 
@@ -147,11 +193,21 @@ return `
 
 function hero(){
 
+const isOpenStatus = /unresolved|missing|open|ongoing|disappear/i.test(currentCase.status || "");
+
 return `
 
 <section class="case-hero">
 
-<div class="hero-left">
+<div class="case-hero-media" style="background-image:url('${currentCase.image}')"></div>
+<div class="case-hero-scrim"></div>
+
+<div class="case-hero-inner">
+
+<a href="index.html" class="hero-back">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+Back to Archive
+</a>
 
 <div class="case-number">
 
@@ -165,7 +221,7 @@ ${currentCase.name}
 
 </h1>
 
-<div class="case-status">
+<div class="case-status${isOpenStatus ? " status-live" : ""}">
 
 ${currentCase.status}
 
@@ -187,18 +243,6 @@ ${currentCase.year}
 
 </div>
 
-<div class="hero-right">
-
-<img
-
-src="${currentCase.image}"
-
-alt="${currentCase.name}"
-
->
-
-</div>
-
 </section>
 
 `;
@@ -213,7 +257,7 @@ function overview(){
 
 return `
 
-<div class="box">
+<div class="box" id="section-overview">
 
 <h2>
 
@@ -245,7 +289,11 @@ function highlights(){
 
 return `
 
+<div class="content-grid highlight-grid">
+
 <div class="highlight red">
+
+<div class="highlight-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
 
 <h3>Key Finding</h3>
 
@@ -259,6 +307,8 @@ ${currentCase.finding || "Information unavailable."}
 
 <div class="highlight blue">
 
+<div class="highlight-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></div>
+
 <h3>Official Position</h3>
 
 <p>
@@ -266,6 +316,8 @@ ${currentCase.finding || "Information unavailable."}
 ${currentCase.official || "Information unavailable."}
 
 </p>
+
+</div>
 
 </div>
 
@@ -323,7 +375,7 @@ if(!currentCase.investigation) return "";
 
 return `
 
-<div class="box">
+<div class="box" id="section-investigation">
 
 <h2>
 
@@ -389,13 +441,15 @@ if(!currentCase.questions) return "";
 
 return `
 
-<div class="box">
+<div class="box" id="section-questions">
 
 <h2>
 
 Unanswered Questions
 
 </h2>
+
+<p class="section-lede">The record stays open until these have real answers.</p>
 
 <div class="question-list">
 
@@ -429,7 +483,7 @@ const s=currentCase.caseStatus;
 
 return `
 
-<div class="box">
+<div class="box" id="section-case-status">
 
 <h2>
 
@@ -540,7 +594,7 @@ function sources(){
 if(!currentCase.sources) return "";
 
 return `
-<div class="box">
+<div class="box" id="section-sources">
 <h2>Sources</h2>
 
 <div class="sources-list">
@@ -553,6 +607,32 @@ ${src.name || "Unidentified Source"}
 
 </div>
 `;
+}
+
+/* ----------------------------------------------------------
+   CLOSING CTA — "this file stays open"
+---------------------------------------------------------- */
+
+function closingCTA(){
+
+const label = currentCase.caseStatus ? currentCase.caseStatus.status : currentCase.status;
+
+return `
+
+<div class="case-cta">
+
+<span class="case-cta-eyebrow">This file stays open</span>
+
+<h2>${label || "Unresolved"} — until it isn't.</h2>
+
+<p>If you have sourced information, documentation, or an update on this case, help us keep the record accurate.</p>
+
+<a href="report.html" class="cta-btn-gold">Report an Update →</a>
+
+</div>
+
+`;
+
 }
 
 /* ----------------------------------------------------------
@@ -603,7 +683,7 @@ ${related.map(c => `
 
 function setupScrollAnimations(){
 
-const elements = document.querySelectorAll(".box, .case-hero, .highlight, .fact-card");
+const elements = document.querySelectorAll(".box, .highlight, .fact-card, .timeline-item");
 
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
@@ -619,6 +699,36 @@ elements.forEach(el => {
 el.classList.add("hidden");
 observer.observe(el);
 });
+}
+
+/* ----------------------------------------------------------
+   TIMELINE PROGRESS RAIL
+---------------------------------------------------------- */
+
+function setupTimelineProgress(){
+
+const track = document.querySelector(".timeline-case");
+
+if(!track) return;
+
+function update(){
+
+const rect = track.getBoundingClientRect();
+const vh = window.innerHeight;
+const total = rect.height;
+
+const visible = Math.min(Math.max((vh * 0.6) - rect.top, 0), total);
+const pct = total > 0 ? (visible / total) * 100 : 0;
+
+track.style.setProperty("--progress", pct + "%");
+
+}
+
+window.addEventListener("scroll", update, { passive:true });
+window.addEventListener("resize", update);
+
+update();
+
 }
 
 /* ----------------------------------------------------------
@@ -646,6 +756,8 @@ ${hero()}
 
 ${quickFacts()}
 
+${caseNav()}
+
 ${overview()}
 
 ${createTimeline()}
@@ -662,12 +774,15 @@ ${statusSection()}
 
 ${sources()}
 
+${closingCTA()}
+
 ${relatedCases()}
 
 `;
 
 setupScrollAnimations();
 setupImageFallback();
+setupTimelineProgress();
 }
 
 /* ----------------------------------------------------------

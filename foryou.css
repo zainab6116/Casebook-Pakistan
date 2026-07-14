@@ -46,6 +46,14 @@ body.dark-mode{
     box-sizing:border-box;
     font-family:'Inter',sans-serif;
 }
+html,body{
+    overflow-x:hidden;
+    max-width:100%;
+}
+img,svg{
+    max-width:100%;
+    height:auto;
+}
 body{
     background:var(--bg-body);
     color:var(--text-primary);
@@ -126,6 +134,8 @@ header{
 nav{
     display:flex;
     align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
     gap:35px;
 }
 
@@ -181,7 +191,7 @@ header input:focus{
     overflow:hidden;
 }
 .ticker-label{
-    background:#b91c1c;
+    background:#8a6a1a;
     color:#fff;
     font-size:11px;
     font-weight:700;
@@ -224,17 +234,30 @@ header input:focus{
     margin-top:45px;
 }
 .stat-box{
+    position:relative;
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(12px);
     border:1px solid rgba(255,255,255,.12);
     border-radius:18px;
-    width:170px;
-    padding:28px 15px;
+    width:180px;
+    padding:26px 14px;
     transition:.3s;
+    overflow:hidden;
+}
+.stat-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#d4af37,transparent);
+    opacity:.7;
 }
 .stat-box:hover{
     transform:translateY(-6px);
     box-shadow:0 18px 35px rgba(0,0,0,.28);
+    border-color:rgba(212,175,55,.35);
 }
 .stat-num{
     font-size:34px;
@@ -243,8 +266,8 @@ header input:focus{
 }
 .stat-label{
     margin-top:10px;
-    font-size:13px;
-    letter-spacing:2px;
+    font-size:12px;
+    letter-spacing:1.4px;
     color:#d1d5db;
 }
 .section{
@@ -309,7 +332,12 @@ header input:focus{
 
 .hero-title span{
     display:inline-block;
-    margin-top:12px;
+    margin-top:14px;
+    font-family:'Newsreader',Georgia,serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:0.86em;
+    letter-spacing:-1px;
     color:#d4af37;
     text-shadow:
         0 0 12px rgba(212,175,55,.45),
@@ -317,17 +345,43 @@ header input:focus{
 }
 .hero-tagline{
 
-    max-width:700px;
+    max-width:620px;
     margin:0 auto 35px;
 
-    font-size:20px;
+    font-size:19px;
 
     color:#cbd5e1;
 
-    line-height:1.7;
+    line-height:1.75;
 
     font-weight:400;
 
+}
+.scroll-cue{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    color:#9aa5b8;
+    text-decoration:none;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.75;
+    transition:.3s;
+}
+.scroll-cue:hover{
+    opacity:1;
+    color:#d4af37;
+}
+.scroll-cue svg{
+    animation:scroll-cue-bounce 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-bounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(5px); }
 }
 .hero-divider{
 
@@ -623,11 +677,21 @@ footer{
     background:#d4af37;
     color:#111827;
 }
+@media (prefers-reduced-motion:reduce){
+    *{
+        animation-duration:.001ms !important;
+        transition-duration:.001ms !important;
+    }
+}
 @media(max-width:992px){
     header{
         flex-direction:column;
         gap:20px;
         padding:20px;
+    }
+    .right-side{
+        width:100%;
+        justify-content:center;
     }
     .hero-title{
         font-size:42px;
@@ -671,8 +735,54 @@ footer{
         width:60px;
         height:40px;
     }
+    .right-side{
+        flex-direction:column;
+        gap:12px;
+    }
     header input{
         width:100%;
+    }
+    header input:focus{
+        width:100%;
+    }
+}
+
+@media(max-width:420px){
+    .hero{
+        padding:55px 16px;
+    }
+    .hero-title{
+        font-size:28px;
+        letter-spacing:-1px;
+    }
+    .hero-tagline{
+        font-size:16px;
+    }
+    .stat-box{
+        width:130px;
+        padding:20px 12px;
+    }
+    .stat-num{
+        font-size:26px;
+    }
+    .section{
+        margin:45px auto;
+    }
+    .card-photo{
+        height:190px;
+    }
+    .card-name{
+        font-size:21px;
+    }
+    #map{
+        height:340px;
+    }
+    .footer-brand{
+        flex-direction:column;
+        gap:10px;
+    }
+    .footer-links{
+        gap:24px;
     }
 }
 footer{

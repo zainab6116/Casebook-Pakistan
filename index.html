@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="foryou.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
@@ -57,13 +57,13 @@ placeholder="Search cases...">
 <div class="ticker-bar">
 
 <div class="ticker-label">
-LIVE NEWS
+ARCHIVE
 </div>
 
 <div class="ticker-track">
 
 <div class="ticker-inner" id="ticker-inner">
-Loading latest news...
+Loading archive updates...
 </div>
 
 </div>
@@ -83,7 +83,8 @@ Loading latest news...
 </h1>
 
 <p class="hero-tagline">
-    An archive of people who spoke the truth—and were silenced.
+    Every case here began with someone brave enough to speak.
+    This is where their story doesn't get to end in silence.
 </p>
 
 <div class="hero-divider"></div>
@@ -95,7 +96,7 @@ Loading latest news...
 <div class="stat-num" id="total-cases">0</div>
 
 <div class="stat-label">
-CASE FILES
+PEOPLE DOCUMENTED
 </div>
 
 </div>
@@ -105,7 +106,7 @@ CASE FILES
 <div class="stat-num" id="total-years">0</div>
 
 <div class="stat-label">
-YEARS
+YEARS OF SILENCE
 </div>
 
 </div>
@@ -115,19 +116,24 @@ YEARS
 <div class="stat-num" id="total-cities">0</div>
 
 <div class="stat-label">
-LOCATIONS
+CITIES ACROSS PAKISTAN
 </div>
 
 </div>
 
 </div>
 
+<a href="#timeline-anchor" class="scroll-cue" aria-label="Scroll to explore the archive">
+<span>Scroll to explore</span>
+<svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+
 </div>
 
-<div class="section">
+<div class="section" id="timeline-anchor">
 
 <p class="section-label">
-SELECT A YEAR
+BROWSE BY YEAR
 </p>
 
 <div class="timeline">
@@ -155,7 +161,7 @@ SELECT A YEAR ABOVE
 <div class="section">
 
 <p class="section-label">
-LIVE CASE MAP — CLICK A PIN TO VIEW CASE
+WHERE IT HAPPENED — CLICK A PIN
 </p>
 
 <div id="map"></div>
@@ -457,22 +463,32 @@ function initSearch() {
 
 function loadNews() {
 
-    var news = [
+    if (!cases || !cases.length) {
 
-        "BREAKING: Major fraud case hearing scheduled next week",
+        document.getElementById("ticker-inner").textContent =
+            "Casebook Pakistan — an archive of unresolved cases.";
 
-        "UPDATE: FIA arrests key suspect in corruption probe",
+        return;
 
-        "NEW: Cybercrime case officially opened in Islamabad",
+    }
 
-        "VERDICT: Embezzlement case — prosecution wins",
+    var sorted = cases.slice().sort(function (a, b) {
 
-        "ALERT: Witnesses come forward in missing persons case"
+        return b.id - a.id;
 
-    ];
+    });
+
+    var items = sorted.slice(0, 6).map(function (c) {
+
+        return "CASE #" + String(c.id).padStart(3, "0") + " — " +
+            c.name + ", " + c.category + ", " + c.location + " (" + c.year + ")";
+
+    });
+
+    items.unshift(cases.length + " CASES DOCUMENTED SO FAR");
 
     document.getElementById("ticker-inner").textContent =
-        news.join("   •   ");
+        items.join("   •   ");
 
 }
 
