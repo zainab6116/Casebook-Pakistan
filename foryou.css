@@ -318,6 +318,219 @@ header input:focus{
     margin-bottom:35px;
     font-weight:700;
 }
+
+/* ================= CASE STATUS DASHBOARD (lives inside the hero) ================= */
+
+.dashboard-panel{
+    position:relative;
+    max-width:900px;
+    margin:40px auto 10px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    overflow:hidden;
+    text-align:left;
+}
+
+.dashboard-panel::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#d4af37,transparent);
+    opacity:.7;
+}
+
+.dashboard-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    padding:22px 26px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.dashboard-eyebrow{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:#d4af37;
+    flex:1 1 auto;
+}
+
+.dashboard-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.dash-filter{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.18);
+    color:#cbd5e1;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.dash-filter:hover{
+    border-color:#d4af37;
+    color:#d4af37;
+}
+
+.dash-filter.active{
+    background:#d4af37;
+    border-color:#d4af37;
+    color:#191204;
+}
+
+.dashboard-count{
+    font-size:12.5px;
+    font-weight:600;
+    color:#8894ab;
+    white-space:nowrap;
+    width:100%;
+}
+
+.dashboard-wrap{
+    max-height:400px;
+    overflow-y:auto;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.dashboard-wrap::-webkit-scrollbar{
+    width:8px;
+}
+
+.dashboard-wrap::-webkit-scrollbar-thumb{
+    background:rgba(212,175,55,.4);
+    border-radius:10px;
+}
+
+.dashboard-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:520px;
+}
+
+.dashboard-table thead th{
+    position:sticky;
+    top:0;
+    z-index:2;
+    background:#111a2c;
+    text-align:left;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#d4af37;
+    padding:12px 20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.dashboard-table td{
+    padding:14px 20px;
+    font-size:14px;
+    color:#c4cbdb;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    white-space:nowrap;
+}
+
+.dash-row{
+    cursor:pointer;
+    transition:.2s;
+}
+
+.dash-row:hover{
+    background:rgba(212,175,55,.08);
+}
+
+.dash-row:last-child td{
+    border-bottom:none;
+}
+
+.dash-name{
+    font-family:'Newsreader',Georgia,serif;
+    font-weight:600;
+    font-size:15px;
+    color:#f4f6fb;
+    white-space:normal;
+}
+
+.dash-case-num{
+    display:inline-block;
+    font-family:monospace;
+    font-size:10.5px;
+    color:#8894ab;
+    margin-right:8px;
+}
+
+.dash-pill{
+    display:inline-block;
+    padding:5px 13px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.4px;
+    white-space:nowrap;
+}
+
+.dash-pill-unresolved{
+    background:rgba(220,80,80,.16);
+    color:#ff8a8a;
+    border:1px solid rgba(220,80,80,.3);
+}
+
+.dash-pill-resolved{
+    background:rgba(212,175,55,.14);
+    color:#e6c85a;
+    border:1px solid rgba(212,175,55,.3);
+}
+
+.dash-pill-other{
+    background:rgba(148,163,184,.12);
+    color:#a8b3c7;
+    border:1px solid rgba(148,163,184,.25);
+}
+
+.dash-empty{
+    text-align:center;
+    padding:40px 20px !important;
+    color:#8894ab;
+    white-space:normal !important;
+}
+
+@media(max-width:700px){
+    .col-hide-sm{
+        display:none;
+    }
+    .dashboard-table{
+        min-width:0;
+    }
+    .dashboard-panel{
+        margin:30px auto 6px;
+        border-radius:18px;
+    }
+    .dashboard-head{
+        padding:16px 18px;
+    }
+    .dashboard-wrap{
+        max-height:320px;
+    }
+    .dashboard-table td, .dashboard-table th{
+        padding:11px 14px;
+    }
+}
+
 .timeline{
     position:relative;
     padding:50px 0;

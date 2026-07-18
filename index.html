@@ -134,6 +134,42 @@ STILL UNRESOLVED
 
 </div>
 
+<div class="dashboard-panel">
+
+<div class="dashboard-head">
+
+<p class="dashboard-eyebrow">Every case, at a glance</p>
+
+<div class="dashboard-filters">
+<button class="dash-filter active" data-filter="all">All Cases</button>
+<button class="dash-filter" data-filter="unresolved">Unresolved</button>
+<button class="dash-filter" data-filter="resolved">Resolved</button>
+</div>
+
+<span class="dashboard-count" id="dashboard-count"></span>
+
+</div>
+
+<div class="dashboard-wrap">
+
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Case</th>
+<th class="col-hide-sm">Category</th>
+<th class="col-hide-sm">Location</th>
+<th>Year</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="dashboard-body">
+</tbody>
+</table>
+
+</div>
+
+</div>
+
 <a href="#timeline-anchor" class="scroll-cue" aria-label="Scroll to explore the archive">
 <span>Scroll to explore</span>
 <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -552,6 +588,97 @@ function loadNews() {
     });
 
 })();
+function classifyStatus(status) {
+
+    var s = (status || "").toLowerCase();
+
+    if (/unresolved|missing|open|ongoing|disappear/.test(s)) return "unresolved";
+
+    if (/resolved|closed|convicted|solved/.test(s)) return "resolved";
+
+    return "other";
+
+}
+
+function makeDashRow(c) {
+
+    var cls = classifyStatus(c.status);
+
+    return `
+    <tr class="dash-row" onclick="window.location.href='case.html?id=${c.id}'">
+        <td class="dash-name">
+            <span class="dash-case-num">#${String(c.id).padStart(3, "0")}</span>
+            ${c.name}
+        </td>
+        <td class="col-hide-sm">${c.category}</td>
+        <td class="col-hide-sm">${c.location}</td>
+        <td>${c.year}</td>
+        <td><span class="dash-pill dash-pill-${cls}">${c.status}</span></td>
+    </tr>
+    `;
+
+}
+
+function buildDashboard(filter) {
+
+    filter = filter || "all";
+
+    var sorted = cases.slice().sort(function (a, b) {
+
+        return (b.year - a.year) || (b.id - a.id);
+
+    });
+
+    var filtered = filter === "all" ? sorted : sorted.filter(function (c) {
+
+        return classifyStatus(c.status) === filter;
+
+    });
+
+    var body = document.getElementById("dashboard-body");
+
+    if (!body) return;
+
+    if (filtered.length === 0) {
+
+        body.innerHTML = `<tr><td colspan="5" class="dash-empty">No cases match this filter.</td></tr>`;
+
+    } else {
+
+        body.innerHTML = filtered.map(makeDashRow).join("");
+
+    }
+
+    var countEl = document.getElementById("dashboard-count");
+
+    if (countEl) {
+
+        countEl.textContent = filtered.length + (filtered.length === 1 ? " case" : " cases");
+
+    }
+
+}
+
+function initDashboardFilters() {
+
+    var buttons = document.querySelectorAll(".dash-filter");
+
+    buttons.forEach(function (btn) {
+
+        btn.addEventListener("click", function () {
+
+            buttons.forEach(function (b) { b.classList.remove("active"); });
+
+            btn.classList.add("active");
+
+            buildDashboard(btn.dataset.filter);
+
+        });
+
+    });
+
+}
+
 window.addEventListener("DOMContentLoaded", function () {
 
     loadStats();
@@ -561,6 +688,10 @@ window.addEventListener("DOMContentLoaded", function () {
     loadNews();
 
     initSearch();
+
+    buildDashboard();
+
+    initDashboardFilters();
 
 });
 
