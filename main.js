@@ -54,7 +54,7 @@ function loadStats(){
         if(c.location && cities.indexOf(c.location) === -1) cities.push(c.location);
     });
     var unresolved = cases.filter(function(c){ return UNRESOLVED_RX.test(c.status || ""); });
-
+     console.log(document.getElementById("total-cases"));
     document.getElementById("total-cases").textContent = cases.length;
     document.getElementById("total-years").textContent = Object.keys(grouped).length;
     document.getElementById("total-cities").textContent = cities.length;
