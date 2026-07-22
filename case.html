@@ -1,78 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Casebook Pakistan</title>
-    <link rel="icon" type="image/png" href="images/logoCreator_imagetologo.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casebook Pakistan — Case File</title>
+<link rel="icon" type="image/png" href="images/logoCreator_imagetologo.jpg">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <header>
-    <div class="logo">
-        <img src="images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan Logo">
-        CASEBOOK PAKISTAN
-    </div>
-    
-    <div class="header-actions" style="display: flex; align-items: center; gap: 20px;">
-        <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 14px;">← Home</a>
-        
-        <!-- THEME TOGGLE BUTTON -->
-        <div class="theme-toggle-wrapper">
-            <button id="themeToggle">🌙</button>
-        </div>
-    </div>
+<div class="logo" onclick="window.location.href='index.html'">
+<img src="images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan Logo">
+<div class="logo-text"><span>CASEBOOK</span><small>Pakistan</small></div>
+</div>
+
+<nav id="site-nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="report.html">Report Case</a>
+</nav>
+
+<div class="right-side">
+<a href="index.html" style="color:var(--text-secondary);font-weight:600;font-size:13px;letter-spacing:.5px;">← Archive</a>
+<button id="themeToggle" aria-label="Toggle light and dark mode">🌙</button>
+</div>
 </header>
 
 <div class="container" id="case-container">
-    <div style="padding:4rem;text-align:center;color:var(--text-muted)">Loading case...</div>
+<div style="padding:6rem 2rem;text-align:center;color:var(--text-muted);font-family:var(--mono);letter-spacing:1px;">Loading case file…</div>
 </div>
 
-<!-- ============================================================
-     THEME TOGGLE JAVASCRIPT
-     ============================================================ -->
+<footer>
+<div class="footer-container">
+<div class="footer-brand">
+<img src="images/logoCreator_imagetologo.jpg" alt="Casebook Pakistan">
+<h2>Casebook Pakistan</h2>
+</div>
+<p class="footer-description">Casebook Pakistan is an independent archive documenting people who spoke the truth, questioned power, or disappeared under unresolved and controversial circumstances.</p>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="report.html">Report a Case</a>
+</div>
+<div class="footer-note">Information is compiled from publicly available news reports and trusted sources. This website is intended for educational and documentary purposes.</div>
+<div class="footer-bottom">© 2026 Casebook Pakistan • Built by Zainab Imtiaz</div>
+</div>
+</footer>
+
 <script>
-  (function () {
-
-    const toggleBtn = document.getElementById("themeToggle");
-
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-
-        document.body.classList.add("dark-mode");
-        toggleBtn.textContent = "🌙";
-
-    } else {
-
+(function(){
+    var toggleBtn = document.getElementById("themeToggle");
+    var saved = localStorage.getItem("cb-theme");
+    if(saved === "light"){
+        document.body.classList.add("light-mode");
         toggleBtn.textContent = "☀️";
-
+    } else {
+        toggleBtn.textContent = "🌙";
     }
-
-    toggleBtn.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            toggleBtn.textContent = "🌙";
-            localStorage.setItem("theme", "dark");
-
-        } else {
-
-            toggleBtn.textContent = "☀️";
-            localStorage.setItem("theme", "light");
-
-        }
-
+    toggleBtn.addEventListener("click", function(){
+        document.body.classList.toggle("light-mode");
+        var isLight = document.body.classList.contains("light-mode");
+        toggleBtn.textContent = isLight ? "☀️" : "🌙";
+        localStorage.setItem("cb-theme", isLight ? "light" : "dark");
     });
-
 })();
-    
 </script>
 
 <script src="cases.js"></script>

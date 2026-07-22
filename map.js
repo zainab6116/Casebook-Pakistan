@@ -13,18 +13,20 @@ var locationCoords = {
     "Quetta":             { lat: 30.1798,  lng: 66.9750 }
 };
 
-// Status se color map
+// Status se color map — muted palette matching the archive's visual identity
 var pinColor = {
-    "CASE UNRESOLVED":         "#e24b4a",
-    "UNDER INVESTIGATION":     "#f59e0b",
-    "CASE SOLVED":             "#22c55e"
+    "CASE UNRESOLVED":         "#9c3a37",
+    "UNDER INVESTIGATION":     "#a89361",
+    "CASE SOLVED":             "#7c8a7c"
 };
 
 function initMap() {
-    var map = L.map('map').setView([30.3753, 69.3451], 5);
+    var map = L.map('map', { scrollWheelZoom: false }).setView([30.3753, 69.3451], 5);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
     }).addTo(map);
 
     // cases.js ka 'cases' array directly use ho raha hai
@@ -66,9 +68,9 @@ function initMap() {
     legend.onAdd = function() {
         var div = L.DomUtil.create('div', 'map-legend');
         div.innerHTML =
-            '<div class="legend-item"><span class="legend-dot" style="background:#e24b4a"></span> Unresolved</div>' +
-            '<div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Under Investigation</div>' +
-            '<div class="legend-item"><span class="legend-dot" style="background:#22c55e"></span> Solved</div>';
+            '<div class="legend-item"><span class="legend-dot" style="background:#9c3a37"></span> Unresolved</div>' +
+            '<div class="legend-item"><span class="legend-dot" style="background:#a89361"></span> Under Investigation</div>' +
+            '<div class="legend-item"><span class="legend-dot" style="background:#7c8a7c"></span> Solved</div>';
         return div;
     };
 
