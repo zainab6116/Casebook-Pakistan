@@ -626,6 +626,8 @@ ${related.map(c => `
    SMOOTH REVEAL ANIMATION
 ---------------------------------------------------------- */
 
+
+
 function setupScrollAnimations(){
 
 const elements = document.querySelectorAll(".reveal-target, .fact-card");
@@ -634,16 +636,25 @@ const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if(entry.isIntersecting){
 entry.target.classList.add("show");
+observer.unobserve(entry.target);
 }
 });
 }, {
-threshold: 0.1
+threshold: 0.01
 });
 
 elements.forEach(el => {
+const rect = el.getBoundingClientRect();
+const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+if(alreadyVisible){
+el.classList.add("show");
+} else {
 el.classList.add("hidden");
 observer.observe(el);
+}
 });
+
 }
 
 /* ----------------------------------------------------------
