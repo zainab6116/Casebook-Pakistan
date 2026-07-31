@@ -8663,4 +8663,193 @@ link:"https://tribune.com.pk/story/2588920/imaan-mazari-husband-jailed-in-peca-c
 ]
 
 },
+{
+id:47,
+name:"Mushtaq Ahmad Khan",
+status:"DETAINED (RELEASED)",
+image:"images/mushtaq-ahmed-khan.jpg",
+
+category:"Politician & Human Rights Advocate",
+location:"Punjab / Azad Jammu & Kashmir",
+year:"2026",
+
+quote:{
+text:"He set out to stand with protesters. Hours later, his whereabouts became the story.",
+author:"Casebook Pakistan"
+},
+
+overview:"Former Senator Mushtaq Ahmad Khan was reportedly detained on 28 July 2026 while travelling toward Azad Jammu and Kashmir to express solidarity with protesters. His party alleged that he was taken to an undisclosed location after being stopped by security personnel. He was released more than a day later, but questions remain about the legal basis for his detention.",
+
+timelineTitle:"Detained During Kashmir Journey",
+
+timeline:[
+
+{
+date:"28 Jul 2026",
+title:"Journey to AJK",
+description:"Travelled toward Azad Jammu and Kashmir to support ongoing protests."
+},
+
+{
+date:"28 Jul 2026",
+title:"Stopped & Detained",
+description:"His party said he was stopped by security personnel in Punjab and taken into custody."
+},
+
+{
+date:"29 Jul 2026",
+title:"Public Concern",
+description:"Supporters, journalists and political figures demanded information about his whereabouts."
+},
+
+{
+date:"31 Jul 2026",
+title:"Released",
+description:"He was released after more than 24 hours in detention and later addressed supporters."
+}
+
+],
+
+knownFor:[
+
+"Human rights advocacy",
+
+"Kashmir rights",
+
+"Parliamentary speeches",
+
+"Public activism",
+
+"Political reform"
+
+],
+finding:"Former Senator Mushtaq Ahmad Khan's party said he was detained after attempting to travel to Azad Jammu and Kashmir to express solidarity with protesters. Supporters stated that his whereabouts were unknown for more than 24 hours before he was released. The legal basis for the detention has not been publicly explained. :contentReference[oaicite:0]{index=0}",
+
+official:"No detailed official explanation for the detention was immediately made public. Authorities later released Mushtaq Ahmad Khan, while his supporters continued to demand transparency regarding the reasons for his detention. :contentReference[oaicite:1]{index=1}",
+
+attention:"The incident drew widespread attention across Pakistan, with journalists, political leaders and civil society questioning the circumstances of his detention. It occurred during heightened tensions surrounding protests in Azad Jammu and Kashmir. :contentReference[oaicite:2]{index=2}",
+
+reaction:"Supporters, political figures and rights advocates condemned the detention and demanded accountability. Following his release, Mushtaq Ahmad Khan announced a public solidarity gathering for Kashmir and thanked those who had raised their voices during his detention. :contentReference[oaicite:3]{index=3}",
+
+whyItMatters:"The case raised fresh concerns about freedom of movement, peaceful political activism and the treatment of public figures participating in demonstrations. It also became part of the wider debate surrounding the unrest in Azad Jammu and Kashmir. :contentReference[oaicite:4]{index=4}",
+
+legacy:"Although the detention was brief, the incident became a significant moment in the 2026 Kashmir protests and strengthened calls for transparency and respect for democratic rights. :contentReference[oaicite:5]{index=5}",
+
+rememberedFor:[
+
+"Speaking for Kashmir",
+
+"Human rights advocacy",
+
+"Peaceful political activism",
+
+"Standing with protesters"
+
+],
+
+whatTheyStoodFor:[
+
+"Human Rights",
+
+"Kashmir",
+
+"Freedom of Expression",
+
+"Peaceful Protest"
+
+],
+investigation:[
+
+{
+title:"Kashmir Solidarity Campaign",
+description:"Former Senator Mushtaq Ahmad Khan travelled to support protesters in Azad Jammu and Kashmir and publicly spoke on issues relating to Kashmir and human rights."
+},
+
+{
+title:"Alleged Detention",
+description:"His party alleged that security personnel detained him and took him to an undisclosed location while he was travelling toward AJK. His whereabouts were publicly questioned until his release."
+},
+
+{
+title:"Release",
+description:"Mushtaq Ahmad Khan was released after more than 24 hours. Questions remain regarding the legal basis for his detention, and supporters have continued to demand transparency."
+},
+
+{
+title:"Public Response",
+description:"The incident drew widespread attention and criticism from supporters and political figures, who called for accountability and an explanation for the detention."
+}
+
+],
+
+questions:[
+
+"Who ordered the detention of Mushtaq Ahmad Khan?",
+
+"Under what legal authority was he detained?",
+
+"Why were his whereabouts unknown for several hours?",
+
+"Will the authorities publicly explain the circumstances of his detention?"
+
+],
+
+caseStatus:{
+
+victim:"Mushtaq Ahmad Khan",
+
+date:"July 2026",
+
+location:"Punjab / Azad Jammu & Kashmir",
+
+status:"CASE DEVELOPING",
+
+updated:"July 2026"
+
+},
+
+caseProgress:{
+
+detention:"Completed",
+
+released:"Completed",
+
+officialExplanation:"Pending",
+
+accountability:"Pending"
+
+},
+
+tags:[
+
+"Kashmir",
+
+"Human Rights",
+
+"Political Activism",
+
+"Detention",
+
+"2026"
+
+],
+
+riskLevel:"Medium",
+
+caseType:"Alleged Detention",
+
+related:[],
+
+casebookNote:"This case is developing. The available public information includes allegations by Mushtaq Ahmad Khan's party regarding his detention, while a full official explanation has not yet been made public.",
+
+sources:[
+
+{
+name:"The Express Tribune",
+link:"https://tribune.com.pk/story/2621071/mushtaq-ahmad-released-after-alleged-detention-by-security-personnel"
+}
+
+]
+
+},
 ];

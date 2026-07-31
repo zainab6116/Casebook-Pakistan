@@ -331,164 +331,90 @@ ${currentCase.official || "Information unavailable."}
 /* ----------------------------------------------------------
    CONTENT GRID
 ---------------------------------------------------------- */
-
 function contentGrid(){
-
 return `
-
 <div class="editorial-grid">
-
 <div class="editorial-col reveal-target">
-
 <h2>Why This Case Matters</h2>
-
 <p>
-
 ${currentCase.attention || "Information unavailable."}
-
 </p>
-
 </div>
-
 <div class="editorial-col reveal-target">
-
 <h2>Public Reaction</h2>
-
 <p>
-
 ${currentCase.reaction || "Information unavailable."}
-
 </p>
-
 </div>
-
 </div>
-
 `;
-
 }
-
 /* ----------------------------------------------------------
    INVESTIGATION
 ---------------------------------------------------------- */
-
 function investigation(){
-
 if(!currentCase.investigation) return "";
-
 return `
-
 <section class="section-block" id="section-investigation">
-
 <p class="eyebrow-mini">Investigation</p>
 <h2 class="section-heading">What was actually looked into</h2>
-
 <div class="exhibit-list">
-
 ${currentCase.investigation.map((item,i)=>`
-
 <div class="exhibit-row reveal-target">
-
 <div class="exhibit-num">${String(i+1).padStart(2,"0")}</div>
-
 <div class="exhibit-body">
-
 <h3>
-
 ${item.title}
-
 </h3>
-
 <p>
-
 ${item.description}
-
 </p>
-
 ${
 item.link ?
-
 `<a
 class="investigation-btn"
 href="${item.link}"
 target="_blank">
-
 Open Source
-
 </a>`
-
 :
-
 ""
-
 }
-
 </div>
-
 </div>
-
 `).join("")}
-
 </div>
-
 </section>
-
 `;
-
 }
-
 /* ----------------------------------------------------------
    QUESTIONS
 ---------------------------------------------------------- */
-
 function questions(){
-
 if(!currentCase.questions) return "";
-
 return `
-
 <section class="questions-panel full-bleed reveal-target" id="section-questions">
-
 <div class="panel-inner">
-
 <p class="eyebrow-mini eyebrow-mini-dark">Unanswered Questions</p>
-
 <h2 class="panel-heading">The record stays open until these have real answers.</h2>
-
 <div class="question-list">
-
 ${currentCase.questions.map((question,i)=>`
-
 <div class="question-row reveal-target">
-
 <span class="question-mark">Q${String(i+1).padStart(2,"0")}</span>
-
 <p>${question}</p>
-
 </div>
-
 `).join("")}
-
 </div>
-
 </div>
-
 </section>
-
 `;
-
 }
-
 /* ----------------------------------------------------------
    CASE STATUS
 ---------------------------------------------------------- */
-
 function statusSection(){
-
 if(!currentCase.caseStatus) return "";
-
 const s = currentCase.caseStatus;
-
 const rows = [
 ["Victim", s.victim],
 ["Date", s.date],
@@ -496,51 +422,32 @@ const rows = [
 ["Status", s.status],
 ["Updated", s.updated]
 ];
-
 return `
-
 <section class="status-strip" id="section-case-status">
-
 <p class="eyebrow-mini">Current Status</p>
-
 <div class="status-strip-grid">
-
 ${rows.map(([label,val])=>`
-
 <div class="status-cell reveal-target">
-
 <span>${label}</span>
-
 <strong>${val}</strong>
-
 </div>
-
 `).join("")}
-
 </div>
-
 </section>
-
 `;
-
 }
 /* ===========================================================
    PART 3
    SOURCES + RELATED + FINAL RENDERING
 =========================================================== */
-
 /* ----------------------------------------------------------
    SOURCES
 ---------------------------------------------------------- */
-
 function sources(){
-
 if(!currentCase.sources) return "";
-
 return `
 <section class="sources-footnotes" id="section-sources">
 <p class="eyebrow-mini">Sources</p>
-
 <div class="footnote-list">
 ${currentCase.sources.map((src,i) => `
 <a href="${src.link}" target="_blank" class="footnote-item">
@@ -548,45 +455,28 @@ ${currentCase.sources.map((src,i) => `
 </a>
 `).join("")}
 </div>
-
 </section>
 `;
 }
-
 /* ----------------------------------------------------------
    CLOSING CTA — "this file stays open"
 ---------------------------------------------------------- */
-
 function closingCTA(){
-
 const label = currentCase.caseStatus ? currentCase.caseStatus.status : currentCase.status;
-
 return `
-
 <div class="case-cta">
-
 <span class="case-cta-eyebrow">This file stays open</span>
-
 <h2>${label || "Unresolved"} — until it isn't.</h2>
-
 <p>If you have sourced information, documentation, or an update on this case, help us keep the record accurate.</p>
-
 <a href="report.html" class="cta-btn-gold">Report an Update →</a>
-
 </div>
-
 `;
-
 }
-
 /* ----------------------------------------------------------
    RELATED CASES
 ---------------------------------------------------------- */
-
 function relatedCases(){
-
 if(!cases) return "";
-
 const related = cases
 .filter(c =>
 c.id !== currentCase.id &&
@@ -597,16 +487,12 @@ c.year === currentCase.year
 )
 )
 .slice(0, 4);
-
 if(related.length === 0) return "";
-
 return `
 <section class="section-block">
 <p class="eyebrow-mini">Related Cases</p>
 <h2 class="section-heading">Other files that connect to this one</h2>
-
 <div class="related-grid">
-
 ${related.map(c => `
 <a class="related-card reveal-target" href="case.html?id=${c.id}">
 <img src="${c.image}" alt="${c.name}">
@@ -616,22 +502,15 @@ ${related.map(c => `
 </div>
 </a>
 `).join("")}
-
 </div>
 </section>
 `;
 }
-
 /* ----------------------------------------------------------
    SMOOTH REVEAL ANIMATION
 ---------------------------------------------------------- */
-
-
-
 function setupScrollAnimations(){
-
 const elements = document.querySelectorAll(".reveal-target, .fact-card");
-
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if(entry.isIntersecting){
@@ -642,11 +521,9 @@ observer.unobserve(entry.target);
 }, {
 threshold: 0.01
 });
-
 elements.forEach(el => {
 const rect = el.getBoundingClientRect();
 const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
 if(alreadyVisible){
 el.classList.add("show");
 } else {
@@ -654,135 +531,85 @@ el.classList.add("hidden");
 observer.observe(el);
 }
 });
-
 }
-
 /* ----------------------------------------------------------
    TIMELINE PROGRESS RAIL
 ---------------------------------------------------------- */
-
 function setupTimelineProgress(){
-
 const track = document.querySelector(".timeline-case");
-
 if(!track) return;
-
 function update(){
-
 const rect = track.getBoundingClientRect();
 const vh = window.innerHeight;
 const total = rect.height;
-
 const visible = Math.min(Math.max((vh * 0.6) - rect.top, 0), total);
 const pct = total > 0 ? (visible / total) * 100 : 0;
-
 track.style.setProperty("--progress", pct + "%");
-
 }
-
 window.addEventListener("scroll", update, { passive:true });
 window.addEventListener("resize", update);
-
 update();
-
 }
-
 /* ----------------------------------------------------------
    IMAGE FALLBACK
 ---------------------------------------------------------- */
-
 function setupImageFallback(){
-
 document.querySelectorAll("img").forEach(img => {
 img.onerror = () => {
 img.src = "assets/default-case.jpg";
 };
 });
 }
-
 /* ----------------------------------------------------------
    MAIN RENDER FUNCTION
 ---------------------------------------------------------- */
-
 function renderCase(){
-
 container.innerHTML = `
-
 ${hero()}
-
 ${quickFacts()}
-
 ${caseNav()}
-
 ${overview()}
-
 ${createTimeline()}
-
 ${highlights()}
-
 ${contentGrid()}
-
 ${investigation()}
-
 ${questions()}
-
 ${statusSection()}
-
 ${sources()}
-
 ${closingCTA()}
-
 ${relatedCases()}
-
 `;
-
 setupScrollAnimations();
 setupImageFallback();
 setupTimelineProgress();
 }
-
 /* ----------------------------------------------------------
    DARK MODE (optional but included)
 ---------------------------------------------------------- */
-
 function initTheme(){
-
 const savedTheme = localStorage.getItem("cb-theme");
-
 if(savedTheme === "dark"){
 document.body.classList.add("dark");
 }
-
 }
-
 /* ----------------------------------------------------------
    BACK BUTTON SUPPORT
 ---------------------------------------------------------- */
-
 function setupBackButton(){
-
 const btn = document.querySelector(".back-btn");
-
 if(btn){
 btn.addEventListener("click", () => {
 history.back();
 });
 }
-
 }
-
 /* ----------------------------------------------------------
    INIT APP
 ---------------------------------------------------------- */
-
 function init(){
-
 initTheme();
 renderCase();
 setupBackButton();
-
 console.log("Casebook Pakistan loaded successfully 🚀");
-
 }
-
 init();
