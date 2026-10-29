@@ -8852,4 +8852,352 @@ link:"https://tribune.com.pk/story/2621071/mushtaq-ahmad-released-after-alleged-
 ]
 
 },
+{
+id:48,
+name:"Imtiaz Mir",
+status:"CASE UNDER INVESTIGATION",
+image:"images/imtiaz-mir.jpg",
+category:"Journalist",
+location:"Karachi, Sindh",
+year:"2025",
+
+quote:{
+text:"He reported the news. Then he became the story.",
+author:"Casebook Pakistan"
+},
+
+overview:"Imtiaz Mir was a Pakistani journalist and Metro 1 News anchor known for covering politics and public affairs. On 21 September 2025, gunmen opened fire on the vehicle carrying him and his brother in Karachi's Malir area. Mir suffered critical injuries and died eight days later.",
+
+timelineTitle:"The Attack That Became His Final Story",
+
+timeline:[
+{
+date:"21 Sep 2025",
+title:"Attacked",
+description:"Gunmen on two motorcycles opened fire on Mir's vehicle in Karachi's Malir area."
+},
+{
+date:"21–28 Sep 2025",
+title:"Fought For His Life",
+description:"Mir was hospitalized and underwent treatment after sustaining multiple gunshot wounds."
+},
+{
+date:"28 Sep 2025",
+title:"Died From His Injuries",
+description:"Mir died during treatment at Liaquat National Hospital."
+},
+{
+date:"27 Oct 2025",
+title:"Suspects Arrested",
+description:"Sindh authorities announced the arrest of four suspects in connection with his murder."
+}
+],
+
+knownFor:[
+"Television journalism",
+"Political reporting",
+"Public affairs",
+"Metro 1 News"
+],
+finding:"Investigators initially registered the case after Mir was attacked while travelling home. Police later announced the arrest of four suspects and said they belonged to a banned militant organisation. Authorities also said the attack was connected to Mir's reporting and his visit to Israel, while the original FIR had named a man and his sons over an alleged land dispute. The competing accounts make the motive an important unanswered question.",
+
+official:"Sindh authorities announced that four suspects had been arrested in a joint operation involving Karachi police and a federal intelligence agency. Officials said the suspects were linked to a banned organisation and that the investigation had identified a possible motive connected to Mir's Israel-related reporting.",
+
+attention:"The killing drew major attention because Mir was a working television journalist and because two different possible motives were reported during the investigation. Journalist organisations demanded accountability and protection for media workers.",
+
+reaction:"The Pakistan Federal Union of Journalists condemned the killing and demanded that the perpetrators be arrested and Mir's family receive compensation. Press-freedom organisations also called for accountability.",
+
+whyItMatters:"Imtiaz Mir's killing highlights the continuing dangers faced by journalists in Pakistan. The differing accounts of the motive also show why a transparent investigation and credible prosecution matter.",
+
+legacy:"Mir is remembered as a television journalist who continued reporting on public affairs until his death. His killing became another major case in the long-running debate over journalist safety and accountability in Pakistan.",
+
+rememberedFor:[
+"Television journalism",
+"Political reporting",
+"Public affairs",
+"Metro 1 News"
+],
+
+whatTheyStoodFor:[
+"Journalism",
+"Freedom of Expression",
+"Public Accountability",
+"Independent Reporting"
+],
+investigation:[
+{
+title:"Initial Investigation",
+description:"Police registered a case after Mir was attacked in Karachi and initially investigated a reported land dispute involving people named in the FIR."
+},
+{
+title:"Four Suspects Arrested",
+description:"On 27 October 2025, authorities announced the arrest of four suspects and said they were linked to a banned militant organisation."
+},
+{
+title:"Conflicting Motive",
+description:"The initial police account pointed to a personal land dispute, while the Sindh Home Minister later alleged that Mir was targeted over his reporting and a 2023 visit to Israel."
+},
+{
+title:"Forensic Evidence",
+description:"Investigators said recovered bullet casings matched pistols seized from the arrested suspects."
+},
+{
+title:"Press Freedom Response",
+description:"The IFJ and PFUJ condemned Mir's killing and called for those responsible to be brought to justice."
+}
+],
+
+questions:[
+"Who ultimately ordered Imtiaz Mir's killing?",
+"Which reported motive is supported by the complete evidence?",
+"Will the arrested suspects face prosecution and conviction?",
+"Why did the initial investigation and later official account give different motives?"
+],
+
+caseStatus:{
+victim:"Imtiaz Mir",
+date:"28 September 2025",
+location:"Malir, Karachi",
+status:"SUSPECTS ARRESTED — CASE UNRESOLVED",
+updated:"August 2026"
+},
+
+caseProgress:{
+attack:"Completed",
+suspectsArrested:"Completed",
+investigation:"Advanced",
+prosecution:"Pending",
+accountability:"Pending"
+},
+
+tags:[
+"Journalist",
+"Press Freedom",
+"Karachi",
+"Investigative Journalism",
+"2025"
+],
+
+riskLevel:"High",
+caseType:"Journalist Murder",
+related:[],
+casebookNote:"Four suspects have been arrested, but important questions remain about the motive, the alleged mastermind and whether those responsible will ultimately face justice.",
+
+sources:[
+{
+name:"Dawn",
+link:"https://www.dawn.com/news/1951585"
+},
+{
+name:"International Federation of Journalists",
+link:"https://www.ifj.org/media-centre/news/detail/article/pakistan-journalist-imtiaz-mir-killed-by-militant-group-in-karachi"
+},
+{
+name:"Pakistan Press Foundation",
+link:"https://pakistanpressfoundation.org/four-suspects-from-banned-outfit-arrested-in-murder-of-journalist-imtiaz-mir/"
+}
+]
+},
+{
+id:50,
+name:"Sardar Usama Jameel",
+status:"KILLED DURING PROTEST (REPORTED)",
+image:"images/usama-jameel.jpg",
+
+category:"PhD Scholar & Student Activist",
+location:"Rawalakot, Poonch / Azad Jammu & Kashmir",
+year:"2026",
+
+quote:{
+text:"He came to the protest as a scholar. He became a symbol.",
+author:"Casebook Pakistan"
+},
+
+overview:"Sardar Usama Jameel, also written Osama Jameel or Usama Jamil, was a PhD scholar at Quaid-i-Azam University, Islamabad, from Mang in Sudhanoti, Azad Jammu and Kashmir. He was also reported to be Deputy Secretary General of the Jammu Kashmir National Students Federation (JKNSF). He was reportedly killed by gunfire in Rawalakot in late July 2026 during the public rights protests in Azad Kashmir. Student groups say security forces were responsible. No independent investigation has been publicly reported.",
+
+timelineTitle:"From the Sit-In to the March",
+
+timeline:[
+
+{
+date:"Jul 2026",
+title:"Rights Movement in Rawalakot",
+description:"Protests and sit-ins took place in Rawalakot as part of the wider public rights movement in Azad Jammu and Kashmir. Student groups say Jameel was one of the student leaders organising people from the start of the sit-in."
+},
+
+{
+date:"28 Jul 2026 (reported)",
+title:"Killed in Rawalakot",
+description:"He was reportedly shot dead in Rawalakot while taking part in a march towards Muzaffarabad. Accounts give different dates between 27 and 29 July."
+},
+
+{
+date:"29 Jul 2026",
+title:"Tributes Spread",
+description:"Videos and tributes identifying him as a Quaid-i-Azam University PhD scholar circulated widely among Kashmiris at home and abroad."
+},
+
+{
+date:"4 Aug 2026",
+title:"Student Groups Demand Justice",
+description:"The Progressive Students Collective condemned the killing, described him as a student leader, and demanded justice and accountability for his family."
+}
+
+],
+
+knownFor:[
+
+"PhD research at Quaid-i-Azam University",
+
+"Student activism",
+
+"JKNSF leadership",
+
+"Leading chants at Rawalakot protests",
+
+"Poetry and love for Kashmir"
+
+],
+finding:"Sardar Usama Jameel was a PhD scholar at Quaid-i-Azam University and a student organiser in the Rawalakot rights movement. Student groups and local accounts say he was shot dead during a march in Rawalakot in late July 2026. Reports differ on the exact date and on the circumstances, and most of the available accounts come from student organisations, opinion writers and social media rather than an official inquiry.",
+
+official:"No detailed official statement on the circumstances of his death was found in the public sources reviewed. The wider crackdown on the Rawalakot protests has been described differently by protesters, rights groups and authorities.",
+
+attention:"His name became a rallying cry among Kashmiri students and the diaspora. Tributes and demands for justice spread widely online, and writers covering the protests cited him as one of the people killed in Rawalakot.",
+
+reaction:"The Progressive Students Collective condemned the killing and demanded justice and accountability for his family. Online tributes remembered him as a scholar, a poet and a young voice who led chants at the protests.",
+
+whyItMatters:"His case raises serious questions about the use of force against protesters and the safety of students who take part in peaceful demonstrations. It also became one of the most recognised personal stories of the 2026 unrest in Azad Jammu and Kashmir.",
+
+legacy:"Usama Jameel is remembered by supporters as a young researcher who did not stay confined to his studies, and as a symbol of educated Kashmiri youth who joined the rights movement.",
+
+rememberedFor:[
+
+"Scholarship",
+
+"Student leadership",
+
+"Standing with protesters",
+
+"Poetry and slogans for Kashmir"
+
+],
+
+whatTheyStoodFor:[
+
+"Public Rights",
+
+"Kashmir",
+
+"Student Activism",
+
+"Peaceful Protest"
+
+],
+investigation:[
+
+{
+title:"Role in the Movement",
+description:"Student groups say Jameel was a PhD scholar at Quaid-i-Azam University and Deputy Secretary General of the JKNSF. They also say he was among the student leaders organising people in Rawalakot."
+},
+
+{
+title:"Reported Killing",
+description:"He was reportedly shot dead in Rawalakot during a march towards Muzaffarabad. Student groups and some writers blame security forces. Dates given range from 27 to 29 July 2026."
+},
+
+{
+title:"Calls for Accountability",
+description:"Student organisations condemned the killing and demanded justice. No public report of a formal investigation, arrest or prosecution was found."
+},
+
+{
+title:"Public Response",
+description:"Tributes and demands for justice spread across Azad Kashmir and the Kashmiri diaspora, and his case was cited in later coverage of the Rawalakot protests."
+}
+
+],
+
+questions:[
+
+"What were the exact date and circumstances of his death?",
+
+"Who fired the shot that killed him?",
+
+"Will an independent and transparent inquiry be held?",
+
+"Will his family receive an official explanation and justice?"
+
+],
+
+caseStatus:{
+
+victim:"Sardar Usama Jameel",
+
+date:"Late July 2026",
+
+location:"Rawalakot, Azad Jammu & Kashmir",
+
+status:"CASE DEVELOPING",
+
+updated:"October 2026"
+
+},
+
+caseProgress:{
+
+incident:"Completed",
+
+publicDemandForJustice:"Ongoing",
+
+officialExplanation:"Pending",
+
+investigation:"Pending",
+
+accountability:"Pending"
+
+},
+
+tags:[
+
+"Kashmir",
+
+"Rawalakot",
+
+"PhD Scholar",
+
+"Student Activism",
+
+"Protest Killing",
+
+"2026"
+
+],
+
+riskLevel:"High",
+
+caseType:"Protest Killing",
+
+related:[47],
+
+casebookNote:"This case is developing. Most available accounts come from student organisations, commentators and social media. Reports differ on the exact date, and a full official explanation has not yet been made public.",
+
+sources:[
+
+{
+name:"The Students Herald",
+link:"https://thestudentsherald.com/student-leader-osama-jameel-martyred-in-rawalakot-crackdown-progressive-students-collective-demands-justice/"
+},
+
+{
+name:"The Azadi Times",
+link:"https://azaditimes.com/news/kashmir/who-was-usama-jamil-phd-scholar-from-azad-kashmir-killed-during-rights-protests/"
+},
+
+{
+name:"Countercurrents (Kashmir Times)",
+link:"https://countercurrents.org/2026/09/100-days-of-defiance-in-rawalakot-the-kashmiri-spirit-pakistan-cannot-kill/"
+}
+
+]
+},
 ];
